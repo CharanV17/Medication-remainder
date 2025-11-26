@@ -49,7 +49,9 @@ Follow these steps:
 Open a terminal and navigate to the backend folder:
 
 cd backend
+
 npm install
+
 npm run dev
 
 2️⃣ Start the Frontend
