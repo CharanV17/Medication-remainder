@@ -40,12 +40,28 @@ View total active reminders
 
 ▶️ Running the Project
 
-Use a single command to start both backend and frontend:
+This project requires both the frontend and backend to run separately.
 
+Follow these steps:
+
+1️⃣ Start the Backend
+
+Open a terminal and navigate to the backend folder:
+
+cd backend
+npm install
 npm run dev
 
-This will launch the full application in development mode
+2️⃣ Start the Frontend
 
+Open a second terminal and navigate to the frontend folder:
+
+cd frontend
+npm install
+npm run dev
+
+
+Both terminals must remain open while the app is running.
 <img width="1848" height="869" alt="Screenshot 2025-11-26 115515" src="https://github.com/user-attachments/assets/6c024e9d-c69b-4d55-8a00-4d43044e384d" />
 
 🤝 Contributing
