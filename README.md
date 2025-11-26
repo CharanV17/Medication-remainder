@@ -59,7 +59,9 @@ npm run dev
 Open a second terminal and navigate to the frontend folder:
 
 cd frontend
+
 npm install
+
 npm run dev
 
 
