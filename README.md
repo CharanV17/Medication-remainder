@@ -36,7 +36,16 @@ View total active reminders
 >Frontend: HTML, CSS, JavaScript (or React if applicable). 
 >Backend: Node.js. 
 >Package Manager: npm. 
->Styling: (Tailwind / CSS — adjust if needed). 
+>Styling: (Tailwind / CSS — adjust if needed).
+
+▶️ Running the Project
+
+Use a single command to start both backend and frontend:
+
+npm run dev
+
+This will launch the full application in development mode
+
 <img width="1848" height="869" alt="Screenshot 2025-11-26 115515" src="https://github.com/user-attachments/assets/6c024e9d-c69b-4d55-8a00-4d43044e384d" />
 
 🤝 Contributing
