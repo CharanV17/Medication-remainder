@@ -1,0 +1,115 @@
+###########################################
+# 1. LOGIN → GET TOKEN
+###########################################
+
+$login = Invoke-RestMethod -Uri http://localhost:3000/api/auth/login -Method POST `
+  -ContentType 'application/json' `
+  -Body (@{ email='test@example.com'; password='1234' } | ConvertTo-Json)
+
+$token = $login.token
+$headers = @{ Authorization = "Bearer $token" }
+
+"Your token:"
+$token
+
+
+###########################################
+# 2. CREATE MEDICATIONS
+###########################################
+
+# Example 1
+Invoke-RestMethod -Uri http://localhost:3000/api/medications -Method POST `
+  -Headers $headers `
+  -ContentType "application/json" `
+  -Body (@{
+      name="Vitamin D"
+      dose="1000 IU"
+      notes="Morning"
+  } | ConvertTo-Json)
+
+# Example 2
+Invoke-RestMethod -Uri http://localhost:3000/api/medications -Method POST `
+  -Headers $headers `
+  -ContentType "application/json" `
+  -Body (@{
+      name="Amoxicillin"
+      dose="250mg"
+      notes="Twice daily"
+  } | ConvertTo-Json)
+
+
+###########################################
+# 3. LIST ALL MEDICATIONS
+###########################################
+
+Invoke-RestMethod -Uri http://localhost:3000/api/medications -Method GET `
+  -Headers $headers
+
+
+###########################################
+# 4. UPDATE MEDICATION (change ID as needed)
+###########################################
+
+Invoke-RestMethod -Uri http://localhost:3000/api/medications/1 -Method PUT `
+  -Headers $headers `
+  -ContentType "application/json" `
+  -Body (@{
+      name="Vitamin D3"
+      dose="2000 IU"
+      notes="After breakfast"
+  } | ConvertTo-Json)
+
+
+###########################################
+# 5. DELETE MEDICATION (change ID as needed)
+###########################################
+
+Invoke-RestMethod -Uri http://localhost:3000/api/medications/1 -Method DELETE `
+  -Headers $headers
+
+
+###########################################
+# 6. CREATE REMINDER
+###########################################
+
+# Use a valid medication_id from step 3
+Invoke-RestMethod -Uri http://localhost:3000/api/reminders -Method POST `
+  -Headers $headers `
+  -ContentType "application/json" `
+  -Body (@{
+      medication_id=1
+      time_of_day="09:00"
+      timezone="Asia/Kolkata"
+      repeat_pattern="daily"
+  } | ConvertTo-Json)
+
+
+###########################################
+# 7. LIST ALL REMINDERS
+###########################################
+
+Invoke-RestMethod -Uri http://localhost:3000/api/reminders -Method GET `
+  -Headers $headers
+
+
+###########################################
+# 8. UPDATE REMINDER (change ID as needed)
+###########################################
+
+Invoke-RestMethod -Uri http://localhost:3000/api/reminders/1 -Method PUT `
+  -Headers $headers `
+  -ContentType "application/json" `
+  -Body (@{
+      medication_id=1
+      time_of_day="08:30"
+      timezone="Asia/Kolkata"
+      repeat_pattern="daily"
+  } | ConvertTo-Json)
+
+
+###########################################
+# 9. DELETE REMINDER (change ID as needed)
+###########################################
+
+Invoke-RestMethod -Uri http://localhost:3000/api/reminders/1 -Method DELETE `
+  -Headers $headers

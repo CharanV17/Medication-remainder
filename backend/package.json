@@ -1,0 +1,37 @@
+{
+  "name": "medication-reminder-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Medication Reminder App (Node.js + Express + Knex + SQLite/Postgres)",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "migrate": "node migrate.js"
+  },
+  "keywords": [
+    "express",
+    "medication",
+    "reminder",
+    "api",
+    "nodejs",
+    "sqlite",
+    "postgres"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "knex": "^3.1.0",
+    "pg": "^8.11.3",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
